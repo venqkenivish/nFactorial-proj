@@ -10,8 +10,8 @@ public class player extends Rectangle {
 	public int x;
 	public int y;
 	public boolean is_jump = false;
+	public boolean can_switch = false;
 	int up=0,down=0,right=0,left=0;
-	Timer timer;
 	player(int x, int y,int size)
 	{
 		super(x*Panel.UNIT_SIZE,y*Panel.UNIT_SIZE,size*Panel.UNIT_SIZE,size*Panel.UNIT_SIZE);

@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 
 
 public class player_fire extends player {
-
+	boolean lever_swith  = false;
 	player_fire(int x, int y,int size){
 		super(x,y,size);
 	}
@@ -25,6 +25,9 @@ public class player_fire extends player {
 		if(e.getKeyCode()==KeyEvent.VK_D) {
 			right=1;
 		}
+		if(e.getKeyCode()==KeyEvent.VK_F) {
+			lever_swith = true;
+		}
 		move();
 	}
 	public void keyReleased(KeyEvent e) {
@@ -43,14 +46,17 @@ public class player_fire extends player {
 		if(e.getKeyCode()==KeyEvent.VK_D) {
 			right=0;
 		}
+		if(e.getKeyCode()==KeyEvent.VK_F) {
+			lever_swith = false;
+		}
 		move();
 	}
 
 	public void move() {
-		x = x+(int)right;
-		x = x-(int)left;
 		y = y-(int)up;
+		x = x+(int)right;
 		y = y+(int)down;
+		x = x-(int)left;
 		if(is_jump)
 		{
 			if(jump_delay ==0)
